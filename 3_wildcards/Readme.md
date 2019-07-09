@@ -24,3 +24,6 @@ For example, try running the `french_goodbye` rule. This rule requires the file 
 Try running `snakemake all`. In the rule, you will see that instead of listing all combinations of languages and greetings, we instead pass the templated target to `expand(...)` and pass corresponding lists of values of wildcards as keyworded arguments (that match said wildcards). `expand(...)` produces all combinations of these lists.
 
 Try replacing line 5 with an uncommented line 6. What would `snakemake all` now do?
+
+## Acknowledgements
+This was adapted from https://snakemake.readthedocs.io/en/stable/tutorial/basics.html?highlight=expand#step-2-generalizing-the-read-mapping-rule
