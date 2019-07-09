@@ -1,4 +1,4 @@
-# Best pratcices for reproducible research with (Snakemake)
+# Best practices for reproducible research with (Snakemake)
 
 ## Requirements
 This repo containes tutorials that require [miniconda](https://docs.conda.io/en/latest/miniconda.html) and  [Snakemake](https://snakemake.readthedocs.io/en/stable/). Setup the conda environment for this tutorial with:
