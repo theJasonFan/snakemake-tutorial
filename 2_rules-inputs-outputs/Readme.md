@@ -1,3 +1,5 @@
+# Intro to inputs and outputs
+
 From the Snakemake docs:
 
 > Snakemake workflows are essentially Python scripts extended by declarative code to define  **rules**. Rules describe how to create  **output files**  from  **input files**.
@@ -14,6 +16,7 @@ In the `Snakefile`:
 What would `snakemake all` do?:
 
 Try running:
+
 	$ snakemake all
 
 Did it produce the files you expected?

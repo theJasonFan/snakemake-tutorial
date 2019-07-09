@@ -1,3 +1,5 @@
+# Hello world
+
 Snakemake is a tool that allows you to specify how scripts and tools should be run.
 
 The following rule named *echo*. Will run the the commands specified under *shell*, a keyword.
