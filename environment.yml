@@ -1,0 +1,12 @@
+# The name of this environemnt
+name: snakemake-tutorial
+
+# An ordered list of anacaonda 'channels' where conda should look for packages
+channels:
+  - conda-forge # Open source, community managed packages
+  - bioconda # Open source community of bioinformatics packages
+  - default # Default, closed source packages managed by Continuum
+
+dependencies:
+  - python=3.7 # Always manage the python version! Here we  use python 3.7
+  - snakemake=5.* # We need snakemake v5 and up for this tutorial
