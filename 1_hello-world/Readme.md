@@ -24,6 +24,6 @@ Then try:
 
 You will see that the results are the same. Snakemake runs the rules defined by the `Snakefile` in the current directory. With `Snakemake {rule}` you ask Snakemake to run the named rule. If no rule is supplied, Snakemake runs the first rule in the specified `Snakefile`.
 
-What will the following command do?
+**What will the following command do?**
 
 	$ Snakemake py_hello
