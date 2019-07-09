@@ -1,0 +1,26 @@
+from os.path import join
+
+output_dir = 'output'
+greeting_template = join(output_dir, 'G={greeting}_N={name}_n={repeats}.txt')
+
+greeting = config['greeting']
+name = config['name']
+repeats = config['repeats']
+
+output_file = greeting_template.format(greeting=greeting, name=name, repeats=repeats)
+
+rule all:
+    output:
+        output_file
+    params:
+        G=greeting,
+        N=name,
+        n=repeats
+    shell:
+        '''
+        python greet.py \\
+            --greeting {params.G} \\
+            --name {params.N} \\
+            --repeats {params.n} \\
+            --output {output}
+        '''

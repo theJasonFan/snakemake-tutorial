@@ -1,0 +1,28 @@
+from os.path import join
+
+output_dir = 'output'
+greeting_template = join(output_dir, 'L={language}_G={greeting}.txt')
+
+languages = 'es en fr'.split()
+greetings = 'hello goodbye'.split()
+
+rule all:
+    input:
+        expand(greeting_template, language=languages, greeting=greetings)
+
+rule spanish_hello:
+    input:
+        join(output_dir, 'L=es_G=hello.txt')
+
+rule greet:
+    output:
+        greeting_template
+    shell:
+        '''
+        python greet.py \\
+            --language {wildcards.language} \\
+            --greeting {wildcards.greeting} \\
+            --output {output}
+        '''
+
+#### 

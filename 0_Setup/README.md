@@ -71,6 +71,7 @@ dependencies:
 ```
 
 Then run:
+
     conda env update -f {environment YAML file}
 
 ## 2. Always manage the python version.

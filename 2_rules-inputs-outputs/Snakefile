@@ -1,0 +1,43 @@
+# Introduction to inputs and outputs
+from os.path import join
+script = 'hello.py'
+
+output_dir = 'output'
+hello_txt = join(output_dir, 'hello.txt')
+goodbye_txt = join(output_dir, 'goodbye.txt')
+complicated_txt = join(output_dir, 'complicated.txt')
+
+# Snakemake procedes in a 
+rule all:
+    input:
+        hello_txt,
+        goodbye_txt,
+        complicated_txt,
+
+rule goodbye:
+    output:
+        goodbye_txt
+    shell:
+        '''
+        echo Goodbye World from echo... >  {output}
+        '''
+
+rule hello:
+    output:
+        hello_txt
+    shell:
+        '''
+        python {script} >  {output}
+        '''
+
+rule complicated:
+    output:
+        complicated_txt
+    input:
+        hello=hello_txt,
+        goodbye=goodbye_txt,
+    shell:
+        '''
+        cat {input.hello} > {output} &&
+        cat {input.goodbye} >> {output}
+        '''

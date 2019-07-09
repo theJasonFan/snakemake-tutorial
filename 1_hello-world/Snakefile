@@ -1,0 +1,16 @@
+# Welcome to your first snakefile
+
+msg = 'hello world'
+script = 'hello.py'
+
+rule echo:
+    shell:
+        '''
+        echo {msg} from echo!
+        '''
+
+rule py_hello:
+    shell:
+        '''
+        python {script}
+        '''
