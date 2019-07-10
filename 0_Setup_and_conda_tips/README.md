@@ -9,22 +9,22 @@ I recommend using Conda and not PIP.
 
 We want to use Conda (over say `pip`) because the following reasons:
 
-1. We want to isolate packages and requirements between different projects. Conda environments allow us to do this.
-2. Explicitly isolating and specifying packages with Conda, we ensure that our research can be easily shared and reproduced
-3. Conda manages **python itself**. (Managing projects that need different python versions would otherwise be difficult)
-4. Conda can manage other packages such as R, and other binaries/tools/langauges (e.g. `gcc', C libraries etc.) required for a project
+1. We want to isolate packages and requirements between different projects. Conda **environments** allow us to do this.
+2. We want to explicitly isolate and specifying packages with Conda so that our research can be easily shared and reproduced.
+3. Conda manages **python itself**. (Managing projects that need different python versions would otherwise be difficult).
+4. Conda can manage other packages such as R, and other binaries/tools/langauges (e.g. `gcc', C libraries etc.) required for a project.
 
 ## 0. Install Miniconda
 
 Install Python 3.7 version of Miniconda from [here](https://docs.conda.io/en/latest/miniconda.html). Simply download the `.sh` script and run:
 
-	sh Miniconda3-latest-Linux-x86_64.sh
+	$ sh Miniconda3-latest-Linux-x86_64.sh
 
 ### Tips for installing Conda on a cluster
 
-We want to install Conda somewhere where we have lots of drive space. This is because for each Conda environment you create, Conda will create a directory containing the required packages; this might take up lots of space.
+We want to install Conda somewhere where we have lots of drive space. Conda will create a directory containing the required packages for each Conda environment you create; this might take up lots of space.
 
- When the Conda installation script prompts for a installation location. Enter an absolute path to a directory that you own, in a location in which you have lots of drive space. (e.g. `{absolute_path_to_lots_of_space}/miniconda3`). Note that you need to name the folder (ideally: `miniconda3`) that you will install Conda to.
+When the Conda installation script prompts for a installation location. Enter an absolute path to a directory that you own, in a location in which you have lots of drive space. (e.g. `{absolute_path_to_lots_of_space}/miniconda3`). Note that you need to name the folder (ideally: `miniconda3`) that you want to install Conda to.
 
 Once Conda has been installed check that Conda was installed where you intended with:
 
@@ -33,22 +33,22 @@ Once Conda has been installed check that Conda was installed where you intended 
 	$ echo $CONDA_PREFIX
 	> {absolute_path_to_lots_of_space}
 
-## 0. Always use an environment
+## 1. Always use an environment
 You want to isolate packages and dependencies between the projects you work on. **Always use a conda environment** - never just use the `base` environment.
 
-## 1. Always use environment files
+## 2. Always use environment files
 You will read in the conda documentation that you can create a conda environment with:
 	
-	conda create -n new-environment
+	$ conda create -n {new-env-name}
 
 And once you activate the environment, many packages (e.g. Snakemake) with documentation will recommend that you install said package with using the commands:
 	
-	pip install snakemake
+	$ pip install snakemake
  
  or
 
-	conda install snakemake
-\
+	$ conda install snakemake
+
 But **these are anti-patterns** - a couple months down the line, how will you know which packages you installed? how will you know which versions of these packages you have updated or changed?
 
 **The solution to mitigate these problems is to always use environment (YAML) files to create and update your environments.** You can read about the environment files [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#create-env-file-manually). An annotated environment file can be found at the root level of this repo.
@@ -81,4 +81,4 @@ Then run:
 1. Use Conda
 2. Always use environment files and use `conda env {update, create} -f ...`.
 3. Never use `conda create -n ...` or `conda install ...`
-4. Always manage your python version.
+4. Always manage your python version with Conda.
