@@ -7,13 +7,12 @@ The following rule named *echo*. Will run the the commands specified under *shel
 Here is a snippet of a rule where a local variable is declared, and a rule is defined to simply `echo` the message onto standard output.
 
 ``` Python
-  
 msg =  'hello world'
 rule echo:
-	shell:
-		'''
-		echo {msg} from echo!
-		'''
+    shell:
+        '''
+        echo {msg} from echo!
+        '''
 ```
 
 In this directory, try running:
